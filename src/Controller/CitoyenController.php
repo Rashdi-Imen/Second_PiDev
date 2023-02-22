@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Citoyen;
 use App\Form\CitoyenType;
+use App\Form\ProfileType;
 use App\Repository\CitoyenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 #[Route('/citoyen')]
 class CitoyenController extends AbstractController
 {
@@ -85,4 +87,33 @@ class CitoyenController extends AbstractController
 
         return $this->redirectToRoute('app_citoyen_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
+    #[Route('/profile/citoyen', name: 'app_citoyen_profile')]
+    public function profile(Request $request, SluggerInterface $slugger): Response
+    {
+
+        $citoyen = $this->getUser();
+
+        if ($citoyen instanceof Citoyen) {
+            $form = $this->createForm(ProfileType::class, $citoyen);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+               
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Profil mis à jour avec succès.');
+                
+
+                return $this->redirectToRoute('app_citoyen_profile');
+            }
+}}
+
+
+
+
 }
+
