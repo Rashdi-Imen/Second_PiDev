@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -14,6 +15,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[InheritanceType('JOINED')] //heritage dans table user
 #[DiscriminatorColumn(name:'Type',type:'string')]//ajouter une colonne dans la bd avec le nom type et dont le type de la colonne est String
 #[DiscriminatorMap(['admin'=>Admin::class,'citoyen'=>Citoyen::class])]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]

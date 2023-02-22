@@ -1,10 +1,72 @@
-{% extends 'home.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 {% block title %}
 	Profile
 {% endblock %}
 {% block content %}
 	<div class="col-lg-8 col-md-16">
 		<div class="onboarding-content-box">
+		  <div class="row">
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card dash-cards">
+                                    <div class="card-body">
+                                        <div class="dash-top-content">
+                                            <div class="circle-bar circle-bar1">
+                                                <div class="circle-graph1" data-percent="75">
+                                                    <img src="{{asset('dashboard/assets/img/icon-01.png')}}" class="img-fluid" alt="patient">
+                                                </div>
+                                            </div>
+                                            <div class="dash-widget-info">
+                                                <h6>Total Patient All time</h6>
+                                                <h3>1500</h3>
+                                            </div>
+                                        </div>
+                                        <div class="dash-bottom-content">
+                                            <h6> <span> <i class="fas fa-caret-up"></i> 9.5%</span> last Week</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card dash-cards">
+                                    <div class="card-body">
+                                        <div class="dash-top-content">
+                                            <div class="circle-bar circle-bar2">
+                                                <div class="circle-graph2" data-percent="75">
+                                                    <img src="{{asset('dashboard/assets/img/icon-03.png')}}" class="img-fluid" alt="patient">
+                                                </div>
+                                            </div>
+                                            <div class="dash-widget-info">
+                                                <h6>Total Appointements</h6>
+                                                <h3>4587</h3>
+                                            </div>
+                                        </div>
+                                        <div class="dash-bottom-content">
+                                            <h6> <span> <i class="fas fa-caret-up"></i> 5.5%</span> last Week</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card dash-cards">
+                                    <div class="card-body">
+                                        <div class="dash-top-content">
+                                            <div class="circle-bar circle-bar3">
+                                                <div class="circle-graph3" data-percent="50">
+                                                    <img src="{{asset('dashboard/assets/img/icon-4.png')}}" class="img-fluid" alt="patient">
+                                                </div>
+                                            </div>
+                                            <div class="dash-widget-info">
+                                                <h6>Today’s Income</h6>
+                                                <h3>€1454</h3>
+                                            </div>
+                                        </div>
+                                        <div class="dash-bottom-content low-percent">
+                                            <h6> <span> <i class="fas fa-caret-down"></i> 5.5%</span> Yesterday</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 			<div class="onboarding-title profile-title">
 				<h2>Personnalisez votre profil
 					
@@ -21,30 +83,7 @@
 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 								</div>
 							{% endif %}
-							<div class="container">
-								<div class="row">
-								<div class="col-lg-12">
-<div class="form-group">
-<div class="upload-pic">
-<img src="assets/img/icons/up-img-1.svg" alt="img" id="blah">
-<h6>Upload Photo</h6>
-<div class="upload-pics">
-<a class="btn-profile"><img src="assets/img/icons/edit.svg" alt=""></a>
-<input type="file" id="imgInp">
-</div>
-</div>
-</div>
-<div class="form-group">
-<div class="photo-norms">
-<h5>Logo Should be minimum 152 * 152 Supported File format JPG,PNG,SVG
-</h5>
-</div>
-</div>
-</div>
-
-
-								</div>
-							</div>
+							
 						</div>
 
 						<div class="container">
@@ -69,6 +108,12 @@
 									</div>
 
 								</div>
+								
+							</div>
+						</div>
+	<div class="container">
+							
+							
 								<div class="col">
 
 									<div class="form-group local-forms">
@@ -82,31 +127,25 @@
 									</div>
 
 								</div>
-							</div>
-						</div>
 
+									<div class="col">
 
-						<div class="container">
-							<div class="row">
+									<div class="form-group">
+										<label class="onboarding-lable">Telephone
 
-								<div class="col-12 col-md-6 col-xl-4">
-									<div class="form-group local-forms">
-										<label>Telephone
-											
 										</label>
 										{{ form_widget(form.tel, {attr:{'class':'form-control'}}) }}
 									</div>
 
 								</div>
-							
-								
 							</div>
-						</div>
+						
+
+					
 
 						
 
-						
-
+					
 
 						<div class="container">
 							<div class="row">
@@ -124,8 +163,8 @@
 							</div>
 						</div>
 
+					
 						
-
 
 					</div>
 

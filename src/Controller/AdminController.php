@@ -28,7 +28,7 @@ class AdminController extends AbstractController
         if (in_array("ROLE_ADMIN", $role)) 
             return $this->redirectToRoute('app_dashboard');
             if (in_array("ROLE_CITOYEN", $role)) 
-              return $this->redirectToRoute('app_citoyen_index');
+              return $this->redirectToRoute('home');
               
         return $this->render('admin/index.html.twig', [
             'users' => $userRepository->findAll(),

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from doccure.dreamguystech.com/html/template/dashboard-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Feb 2023 11:39:00 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Profile
+{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <link href="{{asset('dashboard/assets/img/logo_small.png')}}" rel="icon">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/css/bootstrap.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/assets/plugins/fontawesome/css/all.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/css/feather.css')}}">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/plugins/select2/css/select2.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/css/owl.carousel.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/plugins/apex/apexcharts.css')}}">
+
+    <link rel="stylesheet" href="{{asset('dashboard/assets/css/style.css')}}">
+    
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <header class="header">
+            <nav class="navbar navbar-expand-lg header-nav">
+                <div class="navbar-header">
+                    <a id="mobile_btn" href="javascript:void(0);">
+                        <span class="bar-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </a>
+                    <a href="index.html" class="navbar-brand logo">
+                        <img src="{{asset('dashboard/assets/img/logo.jpg')}}" class="img-fluid" alt="Logo">
+                    </a>
+                </div>
+                <div class="main-menu-wrapper">
+                    <div class="menu-header">
+                        <a href="index.html" class="menu-logo">
+                            <img src="{{asset('dashboard/assets/img/logo.png')}}" class="img-fluid" alt="Logo">
+                        </a>
+                        <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                  
+                </div>
+              
+            </nav>
+        </header>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+
+                        <div class="profile-sidebar">
+                            <div class="widget-profile pro-widget-content">
+                                <div class="profile-info-widget">
+                                    <a href="#" class="booking-doc-img">
+                                        <img src="{{asset('dashboard/assets/img/placeholder-profile-pic.png')}}" alt="User Image">
+                                    </a>
+                                    <div class="profile-det-info">
+                                         <h6>{{app.user.nom}} {{app.user.prenom}}</h6>
+                                  
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard-widget">
+                                <nav class="dashboard-menu">
+                                    <ul>
+                                      
+                                       
+                                       
+                                        
+                                        
+                                        
+                                       
+                                       
+                                       
+                                        <li>
+                                            <a href="{{path ('app_citoyen_profile')}}">
+                                                <i class="fas fa-user-cog"></i>
+                                                <span>Profile Settings</span>
+                                            </a>
+                                        </li>
+                                       
+                                        <li>
+                                            <a href="{{ path ('app_citoyen_change-password')}}">
+                                                <i class="fas fa-lock"></i>
+                                                <span>Changer Mot De Passe</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path ('app_logout')}}">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                <span>Logout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+                     {% block content %}
+                      {% endblock %}
+                </div>
+            </div>
+        </div>
+
+
+       
+
+    </div>
+
+
+    <script data-cfasync="false"
+        src="https://doccure.dreamguystech.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{asset('dashboard/assets/js/jquery-3.6.0.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/js/bootstrap.bundle.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
+    <script src="{{asset('dashboard/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/js/circle-progress.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/js/feather.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/plugins/select2/js/select2.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/js/owl.carousel.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/plugins/apex/apexcharts.min.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/plugins/apex/chart-data.js')}}"></script>
+
+    <script src="{{asset('dashboard/assets/js/script.js')}}"></script>
+</body>
+
+<!-- Mirrored from doccure.dreamguystech.com/html/template/dashboard-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Feb 2023 11:39:21 GMT -->
+
+</html>

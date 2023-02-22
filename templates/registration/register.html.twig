@@ -1,0 +1,197 @@
+{% block title %}{% endblock %}
+{% block body %}
+	<!DOCTYPE html>
+	<html
+		lang="en">
+
+		<!-- Mirrored from doccure.dreamguystech.com/html/template/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Feb 2023 11:42:01 GMT -->
+		<head>
+			<meta charset="utf-8">
+			<title>UTRI</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+			<link href="{{ asset('admin/assets/img/logo.jpg') }}" rel="icon">
+
+			<link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css') }}">
+
+			<link rel="stylesheet" href="{{ asset('dashboard/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('dashboard/assets/plugins/fontawesome/css/all.min.css') }}">
+
+			<link rel="stylesheet" href="{{ asset('dashboard/assets/css/feather.css') }}">
+
+			<link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
+		</head>
+		<body class="account-page">
+
+			<div class="main-wrapper">
+				<div class="content">
+					<div class="container-fluid">
+						<div class="row">
+
+
+							<div class="container">
+								<div class="row">
+									<div class="col">
+
+										<img src="{{ asset('dashboard/assets/img/reg.png') }}" class="img-fluid" alt="Doccure Register">
+
+									</div>
+									<div class="col">
+										<div class="col-md-12 col-lg-12 dashboard-right">
+											<div class="dashboard-header">
+												<h3 style="color:#57b846">Citoyen Register
+													
+												</h3>
+											</div>
+											 {{ form_start(registrationForm,{'attr':{'novalidate':'novalidate'}}) }}
+											<div class="row">
+
+                                                        <div class="col-12 col-md-6 col-xl-6">
+													<div class="form-group local-forms">
+														<label>Nom<span class="dashboard-danger">*</span>
+														</label>
+														 {{ form_widget(registrationForm.nom, {attr:{'class':'form-control'}}) }}
+                                                {% if form_errors(registrationForm.nom) is not empty %}
+                                                <div class="alert alert-danger" {{ form_errors(registrationForm.nom) }}
+                                                    </div>
+                                                    {% endif %}
+													</div>
+												</div>
+												  <div class="col-12 col-md-6 col-xl-6">
+													<div class="form-group local-forms">
+														<label>Prenom<span class="dashboard-danger">*</span>
+														</label>
+														 {{ form_widget(registrationForm.prenom,
+                                                    {attr:{'class':'form-control'}}) }}
+                                                    {% if form_errors(registrationForm.prenom) is not empty %}
+                                                <div class="alert alert-danger" {{ form_errors(registrationForm.prenom) }}
+                                                    </div>
+                                                    {% endif %}
+													</div>
+												</div>
+												 <div class="col-12 col-md-6 col-xl-6">
+													<div class="form-group local-forms">
+														<label>Email<span class="dashboard-danger">*</span>
+														</label>
+														{{ form_widget(registrationForm.email,
+                                                    {attr:{'class':'form-control'}}) }}
+                                                    {% if form_errors(registrationForm.email) is not empty %}
+													<div class="alert alert-danger" {{
+														form_errors(registrationForm.email) }} </div>
+														{% endif %}
+													</div>
+												</div>
+												 <div class="col-12 col-md-6 col-xl-6">
+													<div class="form-group local-forms">
+														<label>Telephone<span class="dashboard-danger">*</span>
+														</label>
+														{{ form_widget(registrationForm.tel,
+                                                    {attr:{'class':'form-control'}}) }}
+                                                    {% if form_errors(registrationForm.tel) is not empty %}
+													<div class="alert alert-danger" {{
+														form_errors(registrationForm.tel) }} </div>
+														{% endif %}
+													</div>
+												</div>
+											
+												
+											
+												
+												
+												
+
+												
+
+												
+												<div class="col-12 col-md-6 col-xl-6">
+													<div class="form-group local-forms">
+														<label>
+															Password
+															<span class="dashboard-danger">*</span>
+														</label>
+														{{ form_widget(registrationForm.password, {attr:{'class':'form-control'}}) }}
+
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-xl-6">
+													<div class="form-group local-forms">
+														<label>Confirme Password
+															<span class="dashboard-danger">*</span>
+														</label>
+														{{ form_widget(registrationForm.confirm_password, {attr:{'class':'form-control'}}) }}
+													</div>
+												</div>
+
+
+												<div class="col-12 col-sm-12">
+													<div class="form-group local-forms">
+														<label>Address
+															<span class="dashboard-danger">*</span>
+														</label>
+														  {{ form_widget(registrationForm.adresse,
+                                                    {attr:{'class':'form-control'}}) }}
+                                                    {% if form_errors(registrationForm.adresse) is not empty %}
+													<div class="alert alert-danger" {{
+														form_errors(registrationForm.adresse) }} </div>
+														{% endif %}
+													</div>
+												</div>
+
+											
+
+<div class="row">
+                                    <div class="col-12">
+                                        <label class="custom_check mr-2 mb-0"> I agree to the <a href="#"
+                                                class="text-primary"> terms of service</a> and <a href="#"
+                                                class="text-primary">privacy policy</a>
+                                           
+											{{ form_widget(registrationForm.agreeTerms, {attr:{'class':'custom_check mr-2 mb-0'}}) }}
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+												<div class="col-12">
+													<div class="doctor-submit text-end">
+														<div class="text-right">
+															{{ form_row(registrationForm.Enregistrer , {attr:{'class':'btn btn-primary save-btn'}}) }}
+														</div>
+
+													</div>
+												</div>
+											</div>
+											{{ form_end(registrationForm) }}
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+						{# <div class="col-md-8 offset-md-2">
+						
+														<div class="account-content">
+															<div class="row align-items-center justify-content-center">
+																<div class="col-md-7 col-lg-6 dashboard-left">
+																	<img src="{{ asset('dashboard/assets/img/dashboard-banner.png')}}" class="img-fluid" alt="Doccure Register">
+																</div>
+																
+														</div>
+						
+													</div>
+												</div>
+											</div>
+										</div> #}
+
+
+					</div>
+					<script data-cfasync="false" src="https://doccure.dreamguystech.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+					<script src="{{asset('dashboard/assets/js/jquery-3.6.0.min.js') }}"></script>
+					<script src="{{ asset('dashboard/assets/js/bootstrap.bundle.min.js') }}"></script>
+					<script src="{{ asset('dashboard/assets/js/feather.min.js') }}"></script>
+					<script src="{{ asset('dashboard/assets/js/script.js') }}"></script>
+				</body>
+			</html>
+		{% endblock %}
+	</body>
+</html>

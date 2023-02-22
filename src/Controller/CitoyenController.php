@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citoyen;
+use App\Form\ChangePasswordType;
 use App\Form\CitoyenType;
 use App\Form\ProfileType;
 use App\Repository\CitoyenRepository;
@@ -89,9 +90,8 @@ class CitoyenController extends AbstractController
     }
 
 
-
     #[Route('/profile/citoyen', name: 'app_citoyen_profile')]
-    public function profile(Request $request, SluggerInterface $slugger): Response
+    public function profile(Request $request): Response
     {
 
         $citoyen = $this->getUser();
@@ -101,16 +101,59 @@ class CitoyenController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-               
+               //EntityManger est un service Doctrine qui nous permet de manipuler des entités
                 $entityManager = $this->getDoctrine()->getManager();
+                //flush : mise à jour dans la BD
                 $entityManager->flush();
 
                 $this->addFlash('success', 'Profil mis à jour avec succès.');
                 
-
+                // baaed matbadel avec succes bsh yerjaali lel page
                 return $this->redirectToRoute('app_citoyen_profile');
             }
-}}
+
+            return $this->render('citoyen/profile.html.twig', [
+                'form' => $form->createView(),
+                
+            ]);
+        }
+
+        throw new \LogicException('Erreur : l\'utilisateur courant n\'est pas un citoyen.');
+    
+        // return $this->render('profile/med_profile.html.twig');
+    }
+
+    #[Route('/citoyen/change-password', name: 'app_citoyen_change-password')]
+    public function changePassword(Request $request)
+    {
+        $form = $this->createForm(ChangePasswordType::class);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $password = $form->get('password')->getData();
+            $ConfirmPassword = $form->get('confirm_password')->getData();
+            $encoder = $this->userPasswordEncoder->encodePassword($user, $password, $ConfirmPassword);
+            $user->setPassword($encoder);
+            $user->setConfirmPassword($encoder);
+
+            $entityManager = $this->getDoctrine()->getManager();// appel au ORM
+            $entityManager->persist($user);//persist=sauvgarde
+            $entityManager->flush();//mise à jour et enrigstrement de modification
+
+            $this->addFlash('success', 'Votre mot de passe a été changé avec succès.');
+
+            return $this->redirectToRoute('app_citoyen_profile');
+        }
+
+        return $this->render('citoyen/change_password_citoyen.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+ 
+    
+
+   
 
 
 
